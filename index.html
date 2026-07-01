@@ -260,6 +260,61 @@ footer{border-top:.5px solid var(--border);padding:20px 20px 32px;display:flex;a
 
 /* UTILITY */
 .spacer{height:24px;}
+
+/* ===== MEDIA COVERAGE WIDGET ===== */
+.mcw{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:20px;margin-top:28px;}
+.mcw-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;gap:12px;}
+.mcw-title{font-family:var(--font-ui);font-size:10px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.mcw-headline{font-family:var(--font-d);font-size:15px;font-weight:700;color:var(--text);line-height:1.3;}
+.mcw-count{flex-shrink:0;text-align:right;}
+.mcw-count-num{font-family:var(--font-d);font-size:28px;font-weight:900;color:var(--text);line-height:1;}
+.mcw-count-lbl{font-family:var(--font-ui);font-size:10px;color:var(--muted);margin-top:2px;}
+
+/* SENTIMENT ROW */
+.mcw-sentiment{margin-bottom:20px;}
+.mcw-s-label{font-family:var(--font-ui);font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.mcw-s-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;gap:2px;}
+.mcw-s-seg{display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:11px;font-weight:500;color:white;transition:flex .6s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;cursor:default;min-width:0;}
+.mcw-s-seg span{white-space:nowrap;overflow:hidden;text-overflow:clip;}
+.mcw-s-seg.pos{background:#2a6e4a;}
+.mcw-s-seg.neu{background:#2a3e5a;}
+.mcw-s-seg.neg{background:#6e2a2a;}
+.mcw-s-seg:hover{filter:brightness(1.2);}
+.mcw-s-legend{display:flex;gap:16px;margin-top:8px;}
+.mcw-s-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+.mcw-s-dot.pos{background:#2a6e4a;}
+.mcw-s-dot.neu{background:#2a3e5a;}
+.mcw-s-dot.neg{background:#6e2a2a;}
+.mcw-s-item{display:flex;align-items:center;gap:5px;font-family:var(--font-ui);font-size:11px;color:var(--muted);}
+.mcw-s-item strong{color:var(--text);}
+
+/* LEAN SPECTRUM */
+.mcw-lean{margin-bottom:20px;}
+.mcw-lean-track{position:relative;height:10px;border-radius:5px;background:linear-gradient(to right,#1a3d6e,#2a5a9e,#3a3a3a,#9e4a2a,#6e1a1a);margin-bottom:6px;overflow:visible;}
+.mcw-lean-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:18px;height:18px;border-radius:50%;background:var(--text);border:2px solid var(--dark);box-shadow:0 0 0 2px var(--gold);transition:left .7s cubic-bezier(.4,0,.2,1);}
+.mcw-lean-labels{display:flex;justify-content:space-between;font-family:var(--font-ui);font-size:10px;color:var(--muted);}
+.mcw-lean-val{font-family:var(--font-ui);font-size:11px;color:var(--text);text-align:center;margin-top:6px;}
+
+/* OUTLET LIST */
+.mcw-outlets-label{font-family:var(--font-ui);font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.mcw-outlet{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:.5px solid var(--border);cursor:pointer;transition:opacity .15s;}
+.mcw-outlet:hover{opacity:.75;}
+.mcw-outlet:last-child{border-bottom:none;}
+.mcw-outlet-logo{width:28px;height:28px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:9px;font-weight:700;color:white;flex-shrink:0;letter-spacing:-.3px;}
+.mcw-outlet-info{flex:1;min-width:0;}
+.mcw-outlet-name{font-family:var(--font-ui);font-size:12px;font-weight:500;color:var(--text);}
+.mcw-outlet-headline{font-family:var(--font-b);font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px;}
+.mcw-outlet-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
+.mcw-lean-pip{display:flex;gap:2px;align-items:center;}
+.mcw-lean-pip-dot{width:6px;height:6px;border-radius:50%;background:var(--border);}
+.mcw-lean-pip-dot.active{background:var(--gold);}
+.mcw-sent-badge{font-family:var(--font-ui);font-size:9px;font-weight:500;padding:1px 6px;border-radius:3px;letter-spacing:.4px;text-transform:uppercase;}
+.mcw-sent-badge.pos{background:rgba(42,110,74,.3);color:#5ecba1;border:.5px solid rgba(42,110,74,.4);}
+.mcw-sent-badge.neu{background:rgba(42,62,90,.4);color:#78b8f0;border:.5px solid rgba(42,62,90,.6);}
+.mcw-sent-badge.neg{background:rgba(110,42,42,.3);color:#f08a8a;border:.5px solid rgba(110,42,42,.4);}
+.mcw-show-more{width:100%;background:none;border:.5px solid var(--border);border-radius:7px;padding:8px;font-family:var(--font-ui);font-size:11px;color:var(--muted);margin-top:10px;transition:border-color .15s,color .15s;}
+.mcw-show-more:hover{border-color:var(--muted);color:var(--text);}
+.mcw-hidden{display:none;}
 </style>
 </head>
 <body>
@@ -623,7 +678,26 @@ const articles = {
     kzItems: [
       {title:'Stanowski o liście Zełenskiego',type:'Wideo · 42 min',emoji:'🎙️'},
       {title:'Czy Polska jest gotowa na wojnę?',type:'Podcast · 58 min',emoji:'🎧'}
-    ]
+    ],
+    media: {
+      total: 21,
+      sentiment: {pos:9,neu:8,neg:4},
+      leanScore: 38,
+      leanLabel: 'Centrum-lewo',
+      outlets: [
+        {name:'Gazeta Wyborcza',color:'#c0392b',initials:'GW',lean:1,sent:'pos',headline:'Odważny ruch Zełenskiego. Czy Putin zdecyduje się na dialog?'},
+        {name:'TVN24',color:'#e05a00',initials:'TV',lean:2,sent:'pos',headline:'Zełenski pisze do Putina. Historyczna propozycja rozmów pokojowych'},
+        {name:'Onet',color:'#e84855',initials:'ON',lean:2,sent:'pos',headline:'List Zełenskiego do Putina. Ukraina chce bezpośrednich negocjacji'},
+        {name:'WP.pl',color:'#e05a00',initials:'WP',lean:3,sent:'neu',headline:'Zełenski proponuje spotkanie z Putinem. Kreml nie odpowiada'},
+        {name:'Rzeczpospolita',color:'#1a4a8a',initials:'RZ',lean:3,sent:'neu',headline:'Dyplomatyczny ruch Kijowa. Eksperci oceniają szanse na sukces'},
+        {name:'Interia',color:'#c0392b',initials:'IN',lean:3,sent:'neu',headline:'Ukraina wyciąga rękę do Rosji. Co stoi za propozycją Zełenskiego?'},
+        {name:'Do Rzeczy',color:'#1e3a7a',initials:'DR',lean:4,sent:'neg',headline:'Zełenski słabnie? List do Putina to sygnał desperacji Kijowa'},
+        {name:'TVP Info',color:'#003d8a',initials:'TP',lean:5,sent:'neg',headline:'Kijów prosi o rozmowy. Czy koalicja rządząca wysyła Ukrainę na rzeź?'},
+        {name:'Niezależna',color:'#2a4a8e',initials:'NZ',lean:5,sent:'neg',headline:'Zełenski kapituluje? Lewica w Polsce popiera każdy ruch Kijowa'},
+        {name:'Polsat News',color:'#e8060c',initials:'PN',lean:3,sent:'neu',headline:'Propozycja pokojowa Ukrainy — co to oznacza dla bezpieczeństwa Polski?'},
+        {name:'PAP',color:'#4a4a8a',initials:'PA',lean:3,sent:'neu',headline:'Ukraina proponuje bezpośrednie rozmowy z Rosją. Komunikat MSZ'},
+      ]
+    }
   },
   'bbn-komandosi': {
     title: 'Burza wokół zdjęcia komandosów. BBN odpowiada na zarzuty',
@@ -645,7 +719,24 @@ const articles = {
     kzItems: [
       {title:'BBN kontra media — kto mówi prawdę?',type:'Wideo · 35 min',emoji:'📰'},
       {title:'Polskie wojska specjalne — tajemnice i jawność',type:'Podcast · 44 min',emoji:'🎧'}
-    ]
+    ],
+    media: {
+      total: 9,
+      sentiment: {pos:0,neu:3,neg:6},
+      leanScore: 52,
+      leanLabel: 'Centrum',
+      outlets: [
+        {name:'Onet',color:'#e84855',initials:'ON',lean:2,sent:'neg',headline:'Zdjęcie komandosów w sieci — poważna wpadka służb'},
+        {name:'TVN24',color:'#e05a00',initials:'TV',lean:2,sent:'neg',headline:'Żołnierze sił specjalnych zidentyfikowani. BBN pod ostrzałem krytyki'},
+        {name:'WP.pl',color:'#e05a00',initials:'WP',lean:3,sent:'neg',headline:'Sił specjalnych twarze w sieci. Jak doszło do przecieku?'},
+        {name:'Gazeta Wyborcza',color:'#c0392b',initials:'GW',lean:1,sent:'neg',headline:'BBN: procedury zadziałały. Eksperci mają poważne wątpliwości'},
+        {name:'Rzeczpospolita',color:'#1a4a8a',initials:'RZ',lean:3,sent:'neu',headline:'BBN odpowiada na zarzuty. Komisja obrony zwołuje posiedzenie'},
+        {name:'Interia',color:'#c0392b',initials:'IN',lean:3,sent:'neu',headline:'Incydent z komandosami — BBN: sytuacja pod kontrolą'},
+        {name:'TVP Info',color:'#003d8a',initials:'TP',lean:5,sent:'neg',headline:'Wpadka służb specjalnych. Opozycja żąda wyjaśnień od rządu'},
+        {name:'Niezależna',color:'#2a4a8e',initials:'NZ',lean:5,sent:'neg',headline:'Kolejna kompromitacja służb za rządów koalicji. Kto odpowie?'},
+        {name:'PAP',color:'#4a4a8a',initials:'PA',lean:3,sent:'neu',headline:'BBN wydało oświadczenie ws. zdjęcia żołnierzy sił specjalnych'},
+      ]
+    }
   },
   'ke-tsue': {
     title: 'Komisja Europejska pozywa Polskę do TSUE. Chodzi o przepisy dotyczące emisji',
@@ -665,7 +756,26 @@ const articles = {
     related: ['zelenski-putin','polskie-bajki','bbn-komandosi'],
     kzItems: [
       {title:'Polska w Europie — partnerstwo czy konfrontacja?',type:'Dyskusja · 52 min',emoji:'🎙️'}
-    ]
+    ],
+    media: {
+      total: 14,
+      sentiment: {pos:2,neu:7,neg:5},
+      leanScore: 44,
+      leanLabel: 'Centrum',
+      outlets: [
+        {name:'Gazeta Wyborcza',color:'#c0392b',initials:'GW',lean:1,sent:'neg',headline:'Polska znowu przed trybunałem. Ile nas to będzie kosztować?'},
+        {name:'TVN24',color:'#e05a00',initials:'TV',lean:2,sent:'neg',headline:'KE pozywa Polskę do TSUE. Grożą nam wysokie kary finansowe'},
+        {name:'Onet',color:'#e84855',initials:'ON',lean:2,sent:'neg',headline:'Polska w TSUE ws. emisji lotniczych. Co to oznacza dla budżetu?'},
+        {name:'Rzeczpospolita',color:'#1a4a8a',initials:'RZ',lean:3,sent:'neu',headline:'KE pozywa Polskę — rząd zapewnia, że sprawa zostanie rozwiązana'},
+        {name:'WP.pl',color:'#e05a00',initials:'WP',lean:3,sent:'neu',headline:'Pozew Komisji Europejskiej. Polska ma odpowiedzieć przed TSUE'},
+        {name:'Interia',color:'#c0392b',initials:'IN',lean:3,sent:'neu',headline:'UE kontra Polska: spór o system handlu emisjami w lotnictwie'},
+        {name:'Polsat News',color:'#e8060c',initials:'PN',lean:3,sent:'neu',headline:'Polska przed Trybunałem UE. Minister: sprawa jest pod kontrolą'},
+        {name:'PAP',color:'#4a4a8a',initials:'PA',lean:3,sent:'neu',headline:'KE skierowała sprawę przeciwko Polsce do TSUE ws. ETS'},
+        {name:'Do Rzeczy',color:'#1e3a7a',initials:'DR',lean:4,sent:'pos',headline:'Bruksela znowu atakuje. KE przekracza swoje kompetencje'},
+        {name:'TVP Info',color:'#003d8a',initials:'TP',lean:5,sent:'pos',headline:'UE pozywa Polskę — kolejny atak Brukseli na suwerenność'},
+        {name:'Niezależna',color:'#2a4a8e',initials:'NZ',lean:5,sent:'neg',headline:'Polska rząd oddał kraj Brukseli. Teraz płacimy cenę'},
+      ]
+    }
   },
   'polskie-bajki': {
     title: 'Jak polskie bajki podbiły świat. Od Reksia do Bolka i Lolka',
@@ -686,7 +796,22 @@ const articles = {
     related: ['zelenski-putin','ke-tsue','chwalinska'],
     kzItems: [
       {title:'Polskie kino — zapomniany skarb',type:'Wideo · 48 min',emoji:'🎬'}
-    ]
+    ],
+    media: {
+      total: 7,
+      sentiment: {pos:6,neu:1,neg:0},
+      leanScore: 42,
+      leanLabel: 'Centrum-lewo',
+      outlets: [
+        {name:'Gazeta Wyborcza',color:'#c0392b',initials:'GW',lean:1,sent:'pos',headline:'Zapomniane arcydzieła z Bielska-Białej. Polska animacja podbiła świat'},
+        {name:'Polityka',color:'#c0392b',initials:'PK',lean:2,sent:'pos',headline:'Reksio na świecie. Jak PRL tworzył globalną popkulturę'},
+        {name:'Culture.pl',color:'#8b2be2',initials:'CP',lean:2,sent:'pos',headline:'Bolek i Lolek, Reksio, Miś Uszatek — polska animacja bez granic'},
+        {name:'TVN24',color:'#e05a00',initials:'TV',lean:2,sent:'pos',headline:'Polskie bajki zdobyły 70 krajów. Historia sukcesu SFR Bielsko-Biała'},
+        {name:'WP.pl',color:'#e05a00',initials:'WP',lean:3,sent:'pos',headline:'Jak PRL-owskie bajki podbiły serca widzów na całym świecie'},
+        {name:'Interia',color:'#c0392b',initials:'IN',lean:3,sent:'pos',headline:'Polska animacja — niedoceniony eksport kulturowy. Historia na nowo'},
+        {name:'Rzeczpospolita',color:'#1a4a8a',initials:'RZ',lean:3,sent:'neu',headline:'Polskie studio animacji: jak Bielsko-Biała wygrała z Hollywoodem'},
+      ]
+    }
   },
   'katastrofa-samolot': {
     title: 'Katastrofa samolotu podczas pożaru Puszczy Solskiej',
@@ -704,7 +829,26 @@ const articles = {
     related: ['bbn-komandosi','zelenski-putin','ke-tsue'],
     kzItems: [
       {title:'Puszczy Solskiej pożar — dlaczego tak często?',type:'Dyskusja · 31 min',emoji:'🔥'}
-    ]
+    ],
+    media: {
+      total: 13,
+      sentiment: {pos:0,neu:5,neg:8},
+      leanScore: 50,
+      leanLabel: 'Centrum',
+      outlets: [
+        {name:'Onet',color:'#e84855',initials:'ON',lean:2,sent:'neg',headline:'Katastrofa w Puszczy Solskiej. Pilot samolotu gaśniczego nie żyje'},
+        {name:'TVN24',color:'#e05a00',initials:'TV',lean:2,sent:'neg',headline:'Dromader rozbił się podczas akcji gaśniczej. Prokuratura wszczyna śledztwo'},
+        {name:'WP.pl',color:'#e05a00',initials:'WP',lean:3,sent:'neg',headline:'Tragedia w Puszczy Solskiej — co wiemy o ostatnich minutach lotu?'},
+        {name:'Polsat News',color:'#e8060c',initials:'PN',lean:3,sent:'neg',headline:'Katastrofa samolotu gaśniczego. Strażacy w żałobie'},
+        {name:'Gazeta Wyborcza',color:'#c0392b',initials:'GW',lean:1,sent:'neg',headline:'Puszcza Solska w ogniu, pilot nie żyje. Dramat podczas akcji ratunkowej'},
+        {name:'Rzeczpospolita',color:'#1a4a8a',initials:'RZ',lean:3,sent:'neu',headline:'PKBWL bada katastrofę Dromadera. Wstępny raport za 30 dni'},
+        {name:'PAP',color:'#4a4a8a',initials:'PA',lean:3,sent:'neu',headline:'Komisja lotnicza: mikroporyw mógł być przyczyną katastrofy'},
+        {name:'Interia',color:'#c0392b',initials:'IN',lean:3,sent:'neu',headline:'Wypadek samolotu gaśniczego — eksperci wskazują na błędy w procedurach'},
+        {name:'TVP Info',color:'#003d8a',initials:'TP',lean:5,sent:'neg',headline:'Tragedia w Puszczy Solskiej. Czy rząd zaniedbał bezpieczeństwo lotnicze?'},
+        {name:'Do Rzeczy',color:'#1e3a7a',initials:'DR',lean:4,sent:'neg',headline:'Pilot zginął. Kto odpowie za luki w procedurach lotnictwa gaśniczego?'},
+        {name:'Niezależna',color:'#2a4a8e',initials:'NZ',lean:5,sent:'neu',headline:'Katastrofa Dromadera — raport komisji ujawnia nieprawidłowości'},
+      ]
+    }
   },
   'chwalinska': {
     title: 'Historyczny sukces Mai Chwalińskiej. Polka awansowała do finału French Open',
@@ -723,7 +867,26 @@ const articles = {
     kzItems: [
       {title:'Chwalińska w finale — analizujemy mecz',type:'Dyskusja · 28 min',emoji:'🎾'},
       {title:'Polskie sporty — czas na drugie życie?',type:'Podcast · 40 min',emoji:'🎧'}
-    ]
+    ],
+    media: {
+      total: 16,
+      sentiment: {pos:15,neu:1,neg:0},
+      leanScore: 50,
+      leanLabel: 'Centrum',
+      outlets: [
+        {name:'Sport.pl',color:'#e84855',initials:'SP',lean:2,sent:'pos',headline:'Cud w Paryżu. Chwalińska pierwszą Polką w finale Rolanda od 14 lat'},
+        {name:'Przegląd Sportowy',color:'#1a4a8a',initials:'PS',lean:3,sent:'pos',headline:'Chwalińska — z drugiej setki WTA do finału Wielkiego Szlema'},
+        {name:'Gazeta Wyborcza',color:'#c0392b',initials:'GW',lean:1,sent:'pos',headline:'Maja Chwalińska w finale! Historyczny sukces polskiego tenisa'},
+        {name:'TVN24',color:'#e05a00',initials:'TV',lean:2,sent:'pos',headline:'Chwalińska w finale Roland Garros. Polska tenisistka pisze historię'},
+        {name:'Onet Sport',color:'#e84855',initials:'OS',lean:2,sent:'pos',headline:'Niesamowita Chwalińska! Polka zagra w finale French Open'},
+        {name:'Polsat Sport',color:'#e8060c',initials:'PS',lean:3,sent:'pos',headline:'Rewelacja French Open. Chwalińska odprawia Jabeur i idzie po tytuł'},
+        {name:'WP SportoweFakty',color:'#e05a00',initials:'SF',lean:3,sent:'pos',headline:'Bajkowa droga Chwalińskiej. Finał Rolanda to spełnienie marzeń'},
+        {name:'Interia Sport',color:'#c0392b',initials:'IS',lean:3,sent:'pos',headline:'Chwalińska w finale — jak to możliwe? Historia niesamowitego awansu'},
+        {name:'TVP Sport',color:'#003d8a',initials:'TS',lean:4,sent:'pos',headline:'Historyczny sukces! Polka w finale Roland Garros po raz pierwszy od lat'},
+        {name:'Rzeczpospolita',color:'#1a4a8a',initials:'RZ',lean:3,sent:'pos',headline:'Chwalińska fenomenem sezonu. Co stoi za jej niespodziewanym sukcesem?'},
+        {name:'PAP Sport',color:'#4a4a8a',initials:'PA',lean:3,sent:'neu',headline:'Chwalińska awansowała do finału French Open pokonując Jabeur 6:4, 3:6, 6:3'},
+      ]
+    }
   }
 };
 
@@ -880,6 +1043,7 @@ function showArticle(id){
       <div><div class="kz-rel-title">${k.title}</div><div class="kz-rel-type">${k.type}</div></div>
     </div>`).join('');
   const sources = (a.sources||[]).map(s=>`<div class="source-item">↗ ${s}</div>`).join('');
+  const mcwHtml = buildMediaWidget(a.media, id);
   document.getElementById('articleContent').innerHTML = `
     <div class="article-back" onclick="goBack()">Wróć</div>
     <div class="article-kicker">${a.kicker}</div>
@@ -898,6 +1062,7 @@ function showArticle(id){
       <p>${a.why}</p>
     </div>
     <div class="article-body">${a.body}</div>
+    ${mcwHtml}
     <div class="article-sources">
       <h4>Źródła (${(a.sources||[]).length})</h4>
       ${sources}
@@ -906,6 +1071,8 @@ function showArticle(id){
     ${relCards?`<div class="article-related"><h3>Czytaj też</h3><div class="rel-grid">${relCards}</div></div>`:''}
   `;
   showPage('article');
+  // animate bars after DOM paint
+  requestAnimationFrame(()=>requestAnimationFrame(()=>animateMediaWidget(id)));
 }
 
 function goBack(){
@@ -1003,6 +1170,152 @@ function showToast(msg){
   const t = document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
   clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// ===== MEDIA COVERAGE WIDGET =====
+function buildMediaWidget(m, articleId){
+  if(!m) return '';
+  const total = m.total;
+  const {pos, neu, neg} = m.sentiment;
+  const pPos = Math.round(pos/total*100);
+  const pNeu = Math.round(neu/total*100);
+  const pNeg = 100 - pPos - pNeu;
+  const leanPct = m.leanScore; // 0=far-left, 50=centre, 100=far-right
+
+  const sentLabels = {pos:'Pozytywnie', neu:'Neutralnie', neg:'Negatywnie'};
+  const sentColors = {pos:'#5ecba1', neu:'#78b8f0', neg:'#f08a8a'};
+
+  // Outlet rows — first 4 visible, rest hidden
+  const outletRows = (m.outlets||[]).map((o,i)=>{
+    const leanDots = [1,2,3,4,5].map(d=>`<div class="mcw-lean-pip-dot${d<=o.lean?' active':''}"></div>`).join('');
+    const leanTitle = ['','Lewica','Centrum-lewo','Centrum','Centrum-prawo','Prawica'][o.lean]||'';
+    return `<div class="mcw-outlet${i>=4?' mcw-hidden':''}" title="${leanTitle}">
+      <div class="mcw-outlet-logo" style="background:${o.color};">${o.initials}</div>
+      <div class="mcw-outlet-info">
+        <div class="mcw-outlet-name">${o.name}</div>
+        <div class="mcw-outlet-headline">${o.headline}</div>
+      </div>
+      <div class="mcw-outlet-right">
+        <div class="mcw-lean-pip">${leanDots}</div>
+        <span class="mcw-sent-badge ${o.sent}">${sentLabels[o.sent]}</span>
+      </div>
+    </div>`;
+  }).join('');
+
+  const hasMore = (m.outlets||[]).length > 4;
+  const showMoreBtn = hasMore
+    ? `<button class="mcw-show-more" onclick="toggleMcwOutlets(this)">Pokaż więcej mediów (${m.outlets.length - 4} więcej) ↓</button>`
+    : '';
+
+  // Donut SVG (sentiment) — drawn as arc segments
+  const r = 34, cx = 42, cy = 42, circumference = 2*Math.PI*r;
+  function arc(pct, offset, cls){
+    if(pct<=0) return '';
+    const dash = (pct/100)*circumference;
+    const gap = circumference - dash;
+    const colors = {pos:'#2a6e4a', neu:'#2a3e5a', neg:'#6e2a2a'};
+    return `<circle class="mcw-donut-seg" cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${colors[cls]}" stroke-width="14" stroke-dasharray="${dash.toFixed(1)} ${gap.toFixed(1)}" stroke-dashoffset="${(-offset/100*circumference).toFixed(1)}" stroke-linecap="butt"/>`;
+  }
+
+  const donutSvg = `<svg width="84" height="84" viewBox="0 0 84 84" style="flex-shrink:0;">
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="var(--border)" stroke-width="14"/>
+    ${arc(pPos, 0, 'pos')}
+    ${arc(pNeu, pPos, 'neu')}
+    ${arc(pNeg, pPos+pNeu, 'neg')}
+    <text x="${cx}" y="${cy+1}" text-anchor="middle" dominant-baseline="middle" fill="var(--text)" font-family="'DM Sans',sans-serif" font-size="14" font-weight="500">${total}</text>
+    <text x="${cx}" y="${cy+14}" text-anchor="middle" dominant-baseline="middle" fill="var(--muted)" font-family="'DM Sans',sans-serif" font-size="7">mediów</text>
+  </svg>`;
+
+  return `<div class="mcw" id="mcw-${articleId}">
+    <div class="mcw-header">
+      <div>
+        <div class="mcw-title">Jak polskie media opisują ten temat</div>
+        <div class="mcw-headline">Pokrycie medialne &amp; nastawienie</div>
+      </div>
+      <div class="mcw-count">
+        <div class="mcw-count-num">${total}</div>
+        <div class="mcw-count-lbl">mediów pisze</div>
+      </div>
+    </div>
+
+    <!-- SENTIMENT: donut + legend -->
+    <div class="mcw-sentiment">
+      <div class="mcw-s-label">Nastawienie przekazu</div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        ${donutSvg}
+        <div style="flex:1;">
+          <div class="mcw-s-bar" id="mcw-bar-${articleId}" style="margin-bottom:10px;">
+            <div class="mcw-s-seg pos" style="flex:${pPos}" data-target="${pPos}"><span>${pPos>8?pPos+'%':''}</span></div>
+            <div class="mcw-s-seg neu" style="flex:${pNeu}" data-target="${pNeu}"><span>${pNeu>8?pNeu+'%':''}</span></div>
+            ${pNeg>0?`<div class="mcw-s-seg neg" style="flex:${pNeg}" data-target="${pNeg}"><span>${pNeg>8?pNeg+'%':''}</span></div>`:''}
+          </div>
+          <div class="mcw-s-legend">
+            <div class="mcw-s-item"><div class="mcw-s-dot pos"></div><span>Pozyt. <strong>${pos}</strong></span></div>
+            <div class="mcw-s-item"><div class="mcw-s-dot neu"></div><span>Neutral. <strong>${neu}</strong></span></div>
+            <div class="mcw-s-item"><div class="mcw-s-dot neg"></div><span>Negat. <strong>${neg}</strong></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POLITICAL LEAN SPECTRUM -->
+    <div class="mcw-lean">
+      <div class="mcw-s-label">Spektrum polityczne mediów piszących o tym temacie</div>
+      <div class="mcw-lean-track">
+        <div class="mcw-lean-marker" id="mcw-marker-${articleId}" style="left:50%;" data-target="${leanPct}%"></div>
+      </div>
+      <div class="mcw-lean-labels">
+        <span>GW · TVN</span>
+        <span>Centrum</span>
+        <span>TVP · Niezależna</span>
+      </div>
+      <div class="mcw-lean-val">Środek ciężkości: <strong>${m.leanLabel}</strong></div>
+    </div>
+
+    <!-- OUTLET LIST -->
+    <div>
+      <div class="mcw-outlets-label">Co piszą konkretne media</div>
+      ${outletRows}
+      ${showMoreBtn}
+    </div>
+  </div>`;
+}
+
+function animateMediaWidget(articleId){
+  // Animate lean marker
+  const marker = document.getElementById('mcw-marker-'+articleId);
+  if(marker){
+    const target = marker.dataset.target;
+    requestAnimationFrame(()=>{ marker.style.left = target; });
+  }
+  // Animate sentiment bar segments from 0 → actual flex
+  const bar = document.getElementById('mcw-bar-'+articleId);
+  if(bar){
+    const segs = bar.querySelectorAll('.mcw-s-seg');
+    segs.forEach(s=>{
+      s.style.flex = '0';
+      s.style.transition = 'none';
+    });
+    requestAnimationFrame(()=>{
+      segs.forEach(s=>{
+        s.style.transition = 'flex .7s cubic-bezier(.4,0,.2,1)';
+        s.style.flex = s.dataset.target;
+      });
+    });
+  }
+}
+
+function toggleMcwOutlets(btn){
+  const widget = btn.closest('.mcw');
+  const hidden = widget.querySelectorAll('.mcw-hidden');
+  if(hidden.length > 0){
+    hidden.forEach(el=>el.classList.remove('mcw-hidden'));
+    btn.textContent = 'Pokaż mniej ↑';
+  } else {
+    const all = widget.querySelectorAll('.mcw-outlet');
+    all.forEach((el,i)=>{ if(i>=4) el.classList.add('mcw-hidden'); });
+    btn.textContent = btn.textContent.replace('Pokaż mniej ↑', btn.dataset.origText||'Pokaż więcej mediów ↓');
+  }
 }
 </script>
 </body>
